@@ -102,6 +102,7 @@ define dialogue_box_scale = 1920.0 / 2245
 define dialogue_body_x = 395
 define dialogue_body_width = 1400
 define dialogue_body_height = 192
+define simple_dialogue = False
 
 screen dialogue_box_art(art):
     add Transform(art, zoom=dialogue_box_scale, alpha=dialogue_box_opacity):
@@ -110,7 +111,7 @@ screen dialogue_box_art(art):
 
 screen say(who, what, dialogue_art=None):
 
-    if dialogue_art or who is None:
+    if not simple_dialogue and (dialogue_art or who is None):
         fixed:
             xysize (1920, dialogue_box_height)
             ypos dialogue_box_bottom
@@ -135,12 +136,14 @@ screen say(who, what, dialogue_art=None):
     else:
         window:
             id "window"
+            background (Solid("#000c") if simple_dialogue else None)
 
             if who is not None:
 
                 window:
                     id "namebox"
                     style "namebox"
+                    background (None if simple_dialogue else style.namebox.background)
                     text who id "who"
 
             text what id "what"
@@ -244,7 +247,12 @@ screen choice(items, prompt=None):
         ypos dialogue_box_bottom
         yanchor 1.0
 
-        use dialogue_box_art("fern_box")
+        if simple_dialogue:
+            add Solid("#000c"):
+                xysize (1920, dialogue_body_height)
+                yalign 1.0
+        else:
+            use dialogue_box_art("fern_box")
 
         fixed:
             xpos dialogue_body_x
@@ -263,21 +271,21 @@ style choice_prompt is default:
     font gui.text_font
     size 24
     bold True
-    color "#211b23"
+    color ("#ffffff" if simple_dialogue else "#211b23")
 
 style choice_button is default:
     xfill True
     yminimum 30
     padding (8, 1)
     background None
-    hover_background Solid("#e5d9ee")
+    hover_background Solid("#333333" if simple_dialogue else "#e5d9ee")
 
 style choice_button_text is default:
     font gui.text_font
     size 23
-    color "#31263a"
-    hover_color "#241633"
-    insensitive_color "#77717b"
+    color ("#ffffff" if simple_dialogue else "#31263a")
+    hover_color ("#ffffff" if simple_dialogue else "#241633")
+    insensitive_color ("#aaaaaa" if simple_dialogue else "#77717b")
 
 
 ## Tela do menu rápido #########################################################
