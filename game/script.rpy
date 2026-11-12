@@ -1,12 +1,24 @@
-﻿label start:
-    scene bg spring_1
-    show fern
-    fern 'The forest is beautiful today.'
-    show caelum
-    caelum 'Indeed, it is. The colors are so vibrant.'
-    hide fern
-    hide caelum
-    show rowan 
-    rowan 'I love how the sunlight filters through the trees.'
+label start:
+    call prologue
+    call house_selection
+    if season == "spring":
+        call spring_01
+        call day_passed(1)
+        call spring_02
+        call day_passed(2)
+        call spring_03
+    elif season == "summer":
+        call summer_01
+        call day_passed(1)
+        call summer_02
+        call day_passed(2)
+        call summer_03
+    else:
+        call autumn_01
+        call day_passed(1)
+        call autumn_02
+        call day_passed(2)
+        call autumn_03
+    call day_passed(3)
+    call endings
     return
-

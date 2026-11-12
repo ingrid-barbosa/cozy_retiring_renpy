@@ -95,25 +95,58 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
-screen say(who, what):
+define dialogue_box_bottom = 1032
+define dialogue_box_height = 286
+define dialogue_box_opacity = 0.88
+define dialogue_box_scale = 1920.0 / 2245
+define dialogue_body_x = 395
+define dialogue_body_width = 1400
+define dialogue_body_height = 192
 
-    window:
-        id "window"
+screen dialogue_box_art(art):
+    add Transform(art, zoom=dialogue_box_scale, alpha=dialogue_box_opacity):
+        xalign 0.5
+        yalign 1.0
 
-        if who is not None:
+screen say(who, what, dialogue_art=None):
 
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
+    if dialogue_art or who is None:
+        fixed:
+            xysize (1920, dialogue_box_height)
+            ypos dialogue_box_bottom
+            yanchor 1.0
 
-        text what id "what"
+            use dialogue_box_art(dialogue_art or "narrator_box")
 
+            fixed:
+                xpos (dialogue_body_x if dialogue_art else 260)
+                yalign 1.0
+                xysize (dialogue_body_width, dialogue_body_height)
 
-    ## Se houver uma imagem lateral, exiba-a acima do texto. Não exiba na
-    ## variante do telefone - não há espaço.
-    if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
+                text what id "what":
+                    xpos 0
+                    ypos (70 if dialogue_art else 96)
+                    yanchor 0.5
+                    xmaximum dialogue_body_width
+                    font gui.text_font
+                    size 30
+                    color "#211b23"
+                    outlines []
+    else:
+        window:
+            id "window"
+
+            if who is not None:
+
+                window:
+                    id "namebox"
+                    style "namebox"
+                    text who id "who"
+
+            text what id "what"
+
+        if not renpy.variant("small"):
+            add SideImage() xalign 0.0 yalign 1.0
 
 
 ## Disponibilize a caixa de nome para estilização por meio do objeto Character.
@@ -124,7 +157,6 @@ style window is default
 style say_label is default
 style say_dialogue is default
 style say_thought is say_dialogue
-
 style namebox is default
 style namebox_label is say_label
 
@@ -135,7 +167,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background None
 
 style namebox:
     xpos gui.name_xpos
@@ -204,30 +236,48 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
-screen choice(items):
+screen choice(items, prompt=None):
     style_prefix "choice"
 
-    vbox:
-        for i in items:
-            textbutton i.caption action i.action
+    fixed:
+        xysize (1920, dialogue_box_height)
+        ypos dialogue_box_bottom
+        yanchor 1.0
 
+        use dialogue_box_art("fern_box")
 
-style choice_vbox is vbox
-style choice_button is button
-style choice_button_text is button_text
+        fixed:
+            xpos dialogue_body_x
+            yalign 1.0
+            xysize (dialogue_body_width, dialogue_body_height)
 
-style choice_vbox:
-    xalign 0.5
-    ypos 405
-    yanchor 0.5
+            vbox:
+                yalign 0.5
+                spacing 1
+                if prompt:
+                    text prompt style "choice_prompt"
+                for item in items:
+                    textbutton item.caption action item.action
 
-    spacing gui.choice_spacing
+style choice_prompt is default:
+    font gui.text_font
+    size 24
+    bold True
+    color "#211b23"
 
 style choice_button is default:
-    properties gui.button_properties("choice_button")
+    xfill True
+    yminimum 30
+    padding (8, 1)
+    background None
+    hover_background Solid("#e5d9ee")
 
 style choice_button_text is default:
-    properties gui.text_properties("choice_button")
+    font gui.text_font
+    size 23
+    color "#31263a"
+    hover_color "#241633"
+    insensitive_color "#77717b"
 
 
 ## Tela do menu rápido #########################################################
@@ -1538,10 +1588,6 @@ screen quick_menu():
             textbutton _("Automotivo") action Preference("auto-forward", "toggle")
             textbutton _("Menu") action ShowMenu()
 
-
-style window:
-    variant "small"
-    background "gui/phone/textbox.png"
 
 style radio_button:
     variant "small"
