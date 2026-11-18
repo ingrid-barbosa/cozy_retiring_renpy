@@ -13,3 +13,4 @@ default visited_dark_autumn = False
 default read_tree = False
 default shell_cut = False
 default day_summary = ""
+default mystery_response = None

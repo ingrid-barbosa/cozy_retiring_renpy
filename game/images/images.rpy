@@ -21,6 +21,11 @@ init python:
             predict_all=True,
         )
 
+    def animal_photo(filename):
+        photo = Transform(filename, xysize=(552, 462), fit="contain")
+        return Window(photo, style="empty", background=Solid("#ffffff"),
+                      padding=(14, 14), xfill=False, yfill=False)
+
 image bg home_spring = scenery_background("images/backgrounds/spring/Background SPRING.png")
 image bg spring_1 = scenery_background("images/backgrounds/spring/Spring 1.png")
 image bg spring_2 = scenery_background("images/backgrounds/spring/Spring 2.png")
@@ -42,10 +47,10 @@ image house yellow = "images/houses/house_yellow.png"
 image house blue = "images/houses/house_blue.png"
 image house red = "images/houses/house_red.png"
 
-image bird = "images/objects/bird_spring 1.png"
-image turtle = "images/objects/turtle_summer.png"
+image bird = animal_photo("images/objects/bird_spring 1.png")
+image turtle = animal_photo("images/objects/turtle_summer.png")
 image shell = "images/objects/shell_summer 1.png"
-image squirrel = "images/objects/squirrel_autumn 1.png"
+image squirrel = animal_photo("images/objects/squirrel_autumn 1.png")
 
 transform cottage_position:
     xalign 0.5

@@ -1,3 +1,21 @@
+define home_memory_titles = {
+    ("spring", "yellow"): "A sunny place beneath the flowers.",
+    ("spring", "blue"): "A patch of sky among the blossoms.",
+    ("spring", "red"): "A red door at the edge of the meadow.",
+    ("summer", "yellow"): "A little sunlight by the sea.",
+    ("summer", "blue"): "A blue door above the tide.",
+    ("summer", "red"): "An ember on the shore.",
+    ("autumn", "yellow"): "A golden roof beneath the leaves.",
+    ("autumn", "blue"): "A quiet blue among the copper trees.",
+    ("autumn", "red"): "A red cottage in the falling leaves.",
+}
+
+define home_memory_locations = {
+    "spring": "the Eternal Meadow",
+    "summer": "the Northern Coast",
+    "autumn": "the Old Forest",
+}
+
 label house_selection:
     call location_tour
     menu (prompt="Where would I like to settle?"):
@@ -7,6 +25,7 @@ label house_selection:
             $ season = "summer"
         "The Old Forest — Autumn":
             $ season = "autumn"
+    $ play_season_soundtrack(season)
     call home_view
     show caelum at speaker_right
     menu (prompt="Which cottage feels like mine?"):
@@ -19,10 +38,11 @@ label house_selection:
     call home_view
     show caelum at speaker_right
     menu (prompt="Am I ready to call this place home?"):
-        "Make this my home":
-            pass
+        "Make this my new home":
+            $ unlock_choice_memory("home:{}:{}".format(season, house_color), home_memory_titles[(season, house_color)], "Fern made the {} cottage in {} her new home.".format(house_color, home_memory_locations[season]))
         "Look at the locations and cottages again":
             $ house_color = None
+            $ stop_story_soundtrack()
             jump house_selection
     caelum "The key is yours, Fern. Come find me if you need anything."
     fern "Thank you, Caelum. I think I'll stay and watch the light change."
@@ -65,6 +85,7 @@ label home_view:
     return
 
 label return_home:
+    $ play_day_soundtrack()
     call home_view
     "Fern returns to her cottage."
     return

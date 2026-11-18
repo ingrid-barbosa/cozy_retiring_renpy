@@ -1,4 +1,4 @@
-define prologue_text = Character(None, screen="prologue_text", statement_name="say-centered")
+define prologue_text = Character(None, screen="prologue_text", statement_name="say-centered", cb_fixed_text_speed=True)
 
 screen prologue_text(who, what):
     text what id "what":
@@ -23,11 +23,13 @@ label prologue:
     fern "So you are the guardian of this place."
     caelum "Yes. And I heard that the southern guardian finally decided to rest."
     fern "After so many years... I thought it was time."
-    caelum "Then allow me to help you begin this new chapter."
+    caelum "I understand your feelings, I wait for the day that my rest also comes"
+    caelum "Please, allow me to help you find a place to call home here, as I know all the places in the North."
     return
 
 label day_passed(day):
     scene black
     with fade
     prologue_text "Day [day] has come to an end.\n\n[day_summary]"
+    $ memory_book_day = min(day + 1, 3)
     return
