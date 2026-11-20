@@ -33,5 +33,5 @@ label autumn_01:
             $ unlock_choice_memory("autumn_01:make-a-way-back-up-the-bank-with-a-fallen-branch", "Autumn - Day 1", day_summary)
             "Fern lays a branch across the loose soil. The squirrel uses it to scramble back to higher ground."
             fern "I watched it choose a different branch on the way up. From where I was standing, its way made more sense."
-    call return_home
+    call return_home from _call_return_home
     return

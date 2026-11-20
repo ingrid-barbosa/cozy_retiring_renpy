@@ -33,5 +33,5 @@ label summer_02:
             $ unlock_choice_memory("summer_02:mark-the-spot-and-leave-before-the-tide-turns", "Summer - Day 2", day_summary)
             "Fern stacks three stones above the waterline. She can find the spot again when the tide is lower."
             fern "The bottom stone is heavier than it looks. Next time I'll know where to stand before I look down."
-    call return_home
+    call return_home from _call_return_home_11
     return

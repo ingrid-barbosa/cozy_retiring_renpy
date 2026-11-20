@@ -13,7 +13,7 @@ label spring_03:
             $ day_summary = "Fern found a path beyond the meadow and decided to head home before nightfall."
             $ unlock_choice_memory("spring_03:go-home-before-it-gets-late", "Spring - Day 3", day_summary)
             fern "I could be back before the kettle cools. A trail can still be interesting tomorrow."
-            call return_home
+            call return_home from _call_return_home_6
             return
     "The flowers thin out. A break in the trees ahead looks like a fork."
     menu:
@@ -24,7 +24,7 @@ label spring_03:
             $ day_summary = "Fern followed the path as far as the thinning flowers, then turned back while she knew the way."
             $ unlock_choice_memory("spring_03:turn-back-while-the-path-is-familiar", "Spring - Day 3", day_summary)
             fern "I wanted another look at the flowers. I'll remember the point where even the yellow ones gave out."
-            call return_home
+            call return_home from _call_return_home_7
             return
     menu:
         "Go left, toward the glint between the stones.":
@@ -49,9 +49,9 @@ label spring_03:
                 fern "Rowan! I thought I was the only one out here."
             else:
                 fern "I followed the trail. Who are you?"
-                call rowan_introduction
+                call rowan_introduction from _call_rowan_introduction_2
             rowan "Easy. You're safe now. Step where I step and I'll take you back."
-            call return_home
+            call return_home from _call_return_home_8
             show rowan at rowan_portrait
             rowan "That was the dead flower field. The roots used to carry spring from the meadow into the forest."
             rowan "Now the magic stops there. The trees beyond the field are dying faster than I can reach them."
@@ -78,5 +78,5 @@ label spring_03:
                     fern "I need to think about what I can promise."
                     fern "Rowan waited while I thought. I'm glad he let me leave the question open."
             return
-    call return_home
+    call return_home from _call_return_home_9
     return

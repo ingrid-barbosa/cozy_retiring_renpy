@@ -35,5 +35,5 @@ label spring_01:
             $ unlock_choice_memory("spring_01:make-a-shelter-with-the-materials-at-hand", "Spring - Day 1", day_summary)
             "Fern folds broad leaves beneath the bush and props them up with twigs. The bird shuffles into the shade."
             fern "There. It can get out whenever it wants. I wish I'd thought to make my own shelters with such an obvious way out."
-    call return_home
+    call return_home from _call_return_home_4
     return

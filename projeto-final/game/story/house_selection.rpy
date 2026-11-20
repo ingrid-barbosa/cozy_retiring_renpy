@@ -17,7 +17,7 @@ define home_memory_locations = {
 }
 
 label house_selection:
-    call location_tour
+    call location_tour from _call_location_tour
     menu (prompt="Where would I like to settle?"):
         "The Eternal Meadow — Spring":
             $ season = "spring"
@@ -26,7 +26,7 @@ label house_selection:
         "The Old Forest — Autumn":
             $ season = "autumn"
     $ play_season_soundtrack(season)
-    call home_view
+    call home_view from _call_home_view_3
     show caelum at speaker_right
     menu (prompt="Which cottage feels like mine?"):
         "The yellow cottage":
@@ -35,7 +35,7 @@ label house_selection:
             $ house_color = "blue"
         "The red cottage":
             $ house_color = "red"
-    call home_view
+    call home_view from _call_home_view_4
     show caelum at speaker_right
     menu (prompt="Am I ready to call this place home?"):
         "Make this my new home":
@@ -86,6 +86,6 @@ label home_view:
 
 label return_home:
     $ play_day_soundtrack()
-    call home_view
+    call home_view from _call_home_view_5
     "Fern returns to her cottage."
     return

@@ -32,5 +32,5 @@ label summer_01:
             $ unlock_choice_memory("summer_01:use-a-piece-of-driftwood-to-give-it-a-foothold", "Summer - Day 1", day_summary)
             "Fern slides the driftwood under the edge of the shell. The turtle pushes against it until it rolls upright."
             fern "I took the driftwood back out of the pool. Something else will find a use for it after the next tide."
-    call return_home
+    call return_home from _call_return_home_10
     return

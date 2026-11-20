@@ -1,9 +1,9 @@
 label endings:
-    call home_view
+    call home_view from _call_home_view
     fern "I've started leaving the key on the windowsill. The first night I kept it in my pocket, even after I'd locked the door."
     fern "I used to fall asleep going over the places I hadn't reached. Tonight I can give myself a little time to think about the ones I did."
-    call ending_day_recap
-    call ending_reflection
+    call ending_day_recap from _call_ending_day_recap
+    call ending_reflection from _call_ending_reflection
     show caelum at speaker_right
     with dissolve
     caelum "You left the lamp on. I thought you might still be awake."
@@ -117,7 +117,7 @@ label ending_reflection:
         elif mystery_response == "wait":
             fern "I gave myself the evening to think. The guardian's promise has waited a long time. I can afford to read it twice before adding my own."
     else:
-        call home_view
+        call home_view from _call_home_view_1
         if found_amulet:
             fern "I put the amulet by the window. The leaf catches the light there. I'd like to find out who wore it before me."
         elif season == "spring" and met_rowan:
@@ -132,6 +132,6 @@ label ending_reflection:
         return
 
     $ play_day_soundtrack(with_ambience=False)
-    call home_view
+    call home_view from _call_home_view_2
     fern "The cottage is warm. I can sit here a little longer before I have to put any of that into words."
     return

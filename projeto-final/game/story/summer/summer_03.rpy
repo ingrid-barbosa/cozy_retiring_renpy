@@ -8,7 +8,7 @@ label summer_03:
     $ companion = renpy.random.choice(("rowan", "caelum"))
     if companion == "rowan":
         show rowan at rowan_portrait
-        call rowan_introduction
+        call rowan_introduction from _call_rowan_introduction_3
         rowan "The sea has been loud tonight. I came down to see what had stirred it."
         if shell_cut:
             rowan "How did you hurt your hand?"
@@ -32,7 +32,7 @@ label summer_03:
             $ day_summary = f"Fern heard two notes by the reef with {companion.capitalize()}. She listened from the beach until they faded, then went home."
             $ unlock_choice_memory("summer_03:listen-from-the-beach-then-go-home", "Summer - Day 3", day_summary)
             "Fern listens until the notes fade into the tide."
-            call return_home
+            call return_home from _call_return_home_12
             fern "I walked all the way home with those two notes in my head. By the time I reached the door, I could hum them without stopping to think."
             return
     $ play_mystery_soundtrack()
@@ -71,5 +71,5 @@ label summer_03:
             $ mystery_response = "listen"
             "Fern stays at the edge of the water until the voice falls quiet."
             fern "I kept expecting the voice to ask something of us. Once I stopped waiting for that, I heard how tired it sounded."
-    call return_home
+    call return_home from _call_return_home_13
     return

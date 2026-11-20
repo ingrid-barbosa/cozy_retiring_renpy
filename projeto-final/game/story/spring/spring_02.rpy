@@ -10,7 +10,7 @@ label spring_02:
         show rowan at rowan_portrait
         rowan "Oh... I didn't expect a visitor."
         fern "Sorry, I was just exploring."
-        call rowan_introduction
+        call rowan_introduction from _call_rowan_introduction_1
         fern "Caelum helped me settle in. I didn't realize I had a neighbor."
         rowan "You know Caelum the cat? Then we're good. Do you care to share some tea in my cottage?"
         menu:
@@ -58,5 +58,5 @@ label spring_02:
                 $ unlock_choice_memory("spring_02:head-back-and-map-the-path-to-her-cottage", "Spring - Day 2", day_summary)
                 "Fern makes a sketch of the orchard and the bend in the path so she can find her way here again."
                 fern "On the sketch, I drew the orchard twice the size it needed to be. I suppose that's the part I wanted to remember."
-    call return_home
+    call return_home from _call_return_home_5
     return

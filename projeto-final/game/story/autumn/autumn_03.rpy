@@ -42,11 +42,11 @@ label autumn_03:
     if companion == "rowan":
         show rowan at rowan_portrait
         rowan "Stop. Put your foot where mine is and follow me out."
-        call rowan_introduction
+        call rowan_introduction from _call_rowan_introduction
     else:
         show caelum at speaker_right
         caelum "Fern! Step back. This magic is older than this forest. Follow my voice."
-    call return_home
+    call return_home from _call_return_home_2
     if companion == "rowan":
         show rowan at rowan_portrait
         rowan "The white tree holds the seal. Its roots have been doing that work alone for longer than anyone remembers."
@@ -87,5 +87,5 @@ label autumn_clear_trail:
     $ day_summary = "Fern chose a turn that led to a clearing and found her way home before dark."
     "The trail opens into a patch of afternoon light. Fern finds her bearings and follows the clearing back toward home."
     fern "The relief came as soon as I saw the sky. I stood in the clearing until I felt ready to walk again."
-    call return_home
+    call return_home from _call_return_home_3
     return
