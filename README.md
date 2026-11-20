@@ -1,198 +1,373 @@
-# The cozy retiring
+# 🌿 The cozy retiring
 
-Uma visual novel sobre recomeços, escolhas e memórias, desenvolvida em Ren’Py para o projeto final de Raciocínio Algorítmico da PUCPR.
+### Uma visual novel sobre recomeços, escolhas e memórias.
 
-**Integrantes:** Ingrid Barbosa Silva e Evelin Monique Ferreira da Silva.
+Depois de séculos como guardiã, Fern recebe a oportunidade de escolher um novo lar e decidir como deseja viver. Durante três dias, suas escolhas revelam sua personalidade, criam memórias e abrem diferentes possibilidades de futuro.
 
-## Sobre o jogo
+**Projeto final de Raciocínio Algorítmico — PUCPR**  
+**Desenvolvido por:** Ingrid Barbosa Silva e Evelin Monique Ferreira da Silva  
+**Engine:** Ren’Py · **Idioma do jogo:** inglês
 
-Depois de séculos como guardiã, Fern recebe a oportunidade de escolher um novo lar e decidir como deseja viver.
+---
 
-A jogadora escolhe uma casa e uma estação e acompanha três dias dessa nova vida. Durante esse período, encontra personagens, explora cenários e toma decisões que influenciam seus diálogos, suas memórias e as possibilidades de final.
+## 📥 Baixar e jogar
 
-O jogo está em inglês.
+**Para jogar pelas versões prontas, não é necessário instalar Python, Ren’Py ou VS Code.**
 
-## Funcionalidades
+| Sistema | Download | Arquivo para abrir |
+|:--|:--|:--|
+| 🪟 **Windows 64 bits** | [Baixar pacote PC](Thecozyretiring-1.0-dists/Thecozyretiring-1.0-pc.zip) | `Thecozyretiring.exe` |
+| 🐧 **Linux x86_64** | [Baixar pacote PC](Thecozyretiring-1.0-dists/Thecozyretiring-1.0-pc.zip) | `Thecozyretiring.sh` |
+| 🍎 **macOS** | [Baixar pacote Mac](Thecozyretiring-1.0-dists/Thecozyretiring-1.0-mac.zip) | `Thecozyretiring.app` |
 
-- Três rotas: primavera, verão e outono.
-- Escolha de casa e estação.
-- Decisões que acumulam pontos de personalidade.
-- Cenas e diálogos condicionados aos acontecimentos da partida.
-- Encontros aleatórios em situações específicas.
-- Livro de memórias organizado por dia.
-- Recapitulação das escolhas e diferentes possibilidades de final.
-- Interface personalizada, efeitos visuais e texto gradual.
-- Músicas locais que acompanham a estação e os momentos de mistério.
-- Integração com a API Jamendo para busca e reprodução de áudio online.
+### Como baixar pelo GitHub
 
-## Tecnologias e dependências
+1. Clique no download correspondente ao seu sistema.
+2. Na página do arquivo, clique em **Download raw file**, no ícone de download ou em **View raw**, conforme a opção exibida.
+3. Aguarde o download terminar.
+4. **Extraia o ZIP inteiro** antes de abrir o jogo.
 
-- Ren’Py 8, com suporte a Python 3.
-- Python integrado ao Ren’Py.
-- API Jamendo.
-- Bibliotecas padrão do Python, incluindo `json`, `urllib`, `ssl` e `tempfile`.
+> Os pacotes estão armazenados com **Git LFS**, pois ultrapassam o limite de tamanho dos arquivos comuns do GitHub. Para baixá-los pelo navegador, você não precisa instalar Git LFS.
 
-Recomenda-se utilizar o Ren’Py SDK 8.5.3 para abrir o projeto.
+O pacote PC tem aproximadamente **159 MiB**, e o pacote Mac, **153 MiB**. Se o download resultar em um arquivo minúsculo contendo um texto que começa com `version https://git-lfs.github.com/spec/v1`, você recebeu somente a referência LFS. Volte à página do arquivo e baixe o conteúdo original.
 
-Não é necessário instalar Python separadamente ou executar `pip install` para a execução básica. O módulo `certifi` é consultado quando disponível; caso contrário, a integração utiliza os certificados acessíveis ao ambiente Python do Ren’Py.
+---
 
-A conexão com a internet é necessária para as funcionalidades da Jamendo. A narrativa e as músicas locais não dependem desse serviço.
+## 🪟 Jogar no Windows
 
-## Como executar
+1. Baixe **Thecozyretiring-1.0-pc.zip**.
+2. Clique com o botão direito no ZIP e selecione **Extrair tudo**.
+3. Abra a pasta extraída **Thecozyretiring-1.0-pc**.
+4. Dê dois cliques em **Thecozyretiring.exe**.
 
-### 1. Instalar o Ren’Py
+> Mantenha o `.exe` junto das pastas `game`, `lib`, `renpy` e dos demais arquivos extraídos. O executável precisa desses recursos para funcionar.
 
-Baixe e extraia o Ren’Py SDK:
+### Pelo terminal
 
-https://www.renpy.org/
+Abra o PowerShell dentro da pasta extraída e execute:
 
-### 2. Obter o projeto
+```powershell
+.\Thecozyretiring.exe
+```
 
-No GitHub, selecione **Code → Download ZIP** e extraia o arquivo.
+### Por um atalho
 
-Também é possível clonar o repositório:
+Você pode criar um atalho para `Thecozyretiring.exe` na área de trabalho. Mantenha a pasta completa do jogo no local original.
+
+---
+
+## 🐧 Jogar no Linux
+
+O pacote PC também inclui a versão para **Linux x86_64**.
+
+1. Baixe **Thecozyretiring-1.0-pc.zip**.
+2. Extraia o ZIP no Linux.
+3. Abra o terminal dentro da pasta **Thecozyretiring-1.0-pc**.
+4. Conceda permissão de execução e inicie o jogo:
 
 ```bash
-git clone https://github.com/ingrid-barbosa/cozy_retiring_renpy.git
+chmod +x Thecozyretiring.sh lib/py3-linux-x86_64/Thecozyretiring
+./Thecozyretiring.sh
 ```
 
-### 3. Localizar a pasta do jogo
+Dependendo do gerenciador de arquivos, também é possível abrir o `.sh` diretamente após conceder a permissão de execução.
 
-A pasta que deve ser reconhecida pelo Ren’Py é:
+> Este pacote não inclui um executável nativo para Linux ARM.
+
+---
+
+## 🍎 Jogar no macOS
+
+1. Baixe **Thecozyretiring-1.0-mac.zip**.
+2. Extraia o ZIP no próprio Mac.
+3. Abra **Thecozyretiring.app**.
+4. Se desejar, mova o aplicativo completo para a pasta **Aplicativos**.
+
+Não retire arquivos de dentro do pacote `.app`.
+
+Se o macOS bloquear a abertura por não reconhecer o desenvolvedor, confira a origem do download e siga as orientações de segurança do próprio sistema.
+
+Se o aplicativo aparecer como danificado, tente baixar novamente e extrair diretamente no Mac. Evite extrair e recomprimir a distribuição no Windows.
+
+---
+
+## 💻 Baixar pelo Git e Git LFS
+
+Esta opção permite obter o código-fonte e os pacotes prontos pelo terminal.
+
+Instale:
+
+- [Git](https://git-scm.com/)
+- [Git LFS](https://git-lfs.com/)
+
+Depois, execute:
+
+```bash
+git lfs install
+git clone https://github.com/ingrid-barbosa/cozy_retiring_renpy.git
+cd cozy_retiring_renpy
+git lfs pull
+```
+
+Os pacotes completos ficarão na pasta:
 
 ```text
-cozy_retiring_renpy/projeto-final
+Thecozyretiring-1.0-dists/
 ```
 
-Ela contém a subpasta `game`. Mantenha os arquivos, imagens, fontes e áudios dentro da estrutura original.
+Extraia o ZIP correspondente ao seu sistema e siga as instruções de abertura.
 
-### 4. Abrir no launcher
+### Já clonou o repositório?
 
-1. Execute o launcher do Ren’Py.
-2. Abra **Preferences / Preferências**.
-3. Em **Projects Directory / Diretório de projetos**, escolha a pasta `cozy_retiring_renpy`, que contém `projeto-final`.
-4. Retorne à lista de projetos.
-5. Selecione o projeto correspondente à pasta `projeto-final`.
-6. Clique em **Launch Project / Iniciar projeto**.
+Abra o terminal dentro dele e execute:
 
-Não execute os arquivos `.rpy` diretamente com o Python ou pelo botão de execução do VS Code.
+```bash
+git lfs install
+git lfs pull
+```
 
-## Controles
+### Sobre “Code → Download ZIP”
+
+Esse botão baixa uma cópia do repositório com o código-fonte. A inclusão dos pacotes completos do Git LFS depende da configuração do repositório.
+
+Se os ZIPs das distribuições vierem somente como referências LFS:
+
+- Baixe os pacotes individualmente pelos links da tabela inicial; ou
+- Utilize Git com `git lfs pull`.
+
+O código dentro de `projeto-final` pode ser executado pelo Ren’Py mesmo sem baixar as distribuições prontas.
+
+---
+
+## 🛠️ Executar o código pelo Ren’Py
+
+Esta opção é indicada para estudar, editar ou executar o projeto-fonte.
+
+### Dependências
+
+- **Ren’Py SDK 8.5.3**, versão indicada para o projeto.
+- Python e runtime incluídos no próprio SDK.
+- Internet para os recursos online da Jamendo.
+
+➡️ [Baixar Ren’Py SDK 8.5.3](https://www.renpy.org/release/8.5.3)
+
+Não é necessário instalar Python separadamente, criar um ambiente virtual ou executar `pip install` para a execução básica.
+
+### Pelo launcher
+
+1. Baixe e extraia o repositório ou clone pelo Git.
+2. Abra o launcher do Ren’Py.
+3. Entre em **Preferences / Preferências**.
+4. Em **Projects Directory / Diretório de projetos**, escolha a pasta que contém `projeto-final`.
+5. Retorne à lista de projetos.
+6. Selecione o jogo correspondente a `projeto-final`.
+7. Clique em **Launch Project / Iniciar projeto**.
+
+A estrutura deve ser:
+
+```text
+pasta-do-repositorio/
+└── projeto-final/
+    └── game/
+        ├── script.rpy
+        ├── screens.rpy
+        └── ...
+```
+
+> O diretório selecionado no launcher deve conter `projeto-final`. Não selecione diretamente a pasta `game`.
+
+### Pelo terminal do SDK
+
+No **Windows**, abra o PowerShell dentro da pasta do Ren’Py SDK:
+
+```powershell
+.\renpy.exe "C:\caminho\cozy_retiring_renpy\projeto-final" run
+```
+
+No **Linux ou macOS**, abra o terminal dentro da pasta do SDK:
+
+```bash
+./renpy.sh "/caminho/cozy_retiring_renpy/projeto-final" run
+```
+
+Substitua os caminhos de exemplo pela localização do projeto no seu computador.
+
+### Pelo VS Code
+
+Abra `projeto-final` no VS Code para visualizar ou editar os arquivos. Para executar, utilize o launcher do Ren’Py ou os comandos do SDK no terminal.
+
+> Os arquivos `.rpy` usam a linguagem do Ren’Py e não devem ser executados pelo botão **Run Python File** como scripts Python comuns.
+
+---
+
+## 🎮 Controles
 
 | Ação | Controle |
-|---|---|
-| Avançar o diálogo ou completar o texto | Clique ou barra de espaço |
+|:--|:--|
+| Completar o texto ou avançar o diálogo | Clique ou barra de espaço |
 | Escolher uma opção | Clique na opção |
 | Consultar memórias | Ícone do livro no canto superior direito |
 | Abrir o menu do jogo | Esc |
+| Salvar e carregar partidas | Opções dos menus do jogo |
 | Ajustar volumes e velocidade do texto | Preferences |
 
-Os menus também permitem salvar e carregar partidas.
+---
 
-## Música e integração com a Jamendo
+## 🌸 Funcionalidades
 
-O áudio utiliza duas partes complementares:
+- **Três rotas:** primavera, verão e outono.
+- **Escolha de lar:** casa e estação influenciam a experiência.
+- **Personalidade:** pontos de empatia, coragem, curiosidade e independência.
+- **Continuidade narrativa:** diálogos que consideram encontros e acontecimentos anteriores.
+- **Aleatoriedade:** aparições de personagens em situações específicas.
+- **Livro de memórias:** decisões organizadas por dia e vinculadas à partida.
+- **Diferentes finais:** possibilidades relacionadas à trajetória de Fern.
+- **Interface personalizada:** caixas de diálogo, menus e efeitos visuais.
+- **Ambientação sonora:** trilhas locais e áudio obtido pela Jamendo.
+
+---
+
+## 🎵 Áudio e API Jamendo
 
 ### Trilhas locais
 
-O código do jogo controla automaticamente as músicas conforme a estação e a situação narrativa.
+As músicas acompanham automaticamente a estação e a situação narrativa.
 
-Durante a exploração, a sequência alterna a trilha principal com quatro faixas neutras antes de retornar à principal. As cenas de mistério utilizam uma trilha própria.
+Durante a exploração, a trilha principal alterna com quatro faixas neutras antes de retornar. Nos momentos de mistério, o jogo utiliza músicas específicas.
+
+Esses arquivos já estão incluídos na distribuição.
 
 ### Ambientação online
 
-A integração com a Jamendo busca a faixa de ambientação **Birdstrem, de Zeffon**, e tenta reproduzi-la em loop junto das músicas locais.
+A integração busca **Birdstrem, de Zeffon**, na Jamendo.
 
-O menu **Jamendo Radio** também permite pesquisar faixas online e ouvir os resultados disponíveis para reprodução.
+O jogo consulta a API pela internet, interpreta a resposta em JSON e baixa o áudio para uma pasta temporária. Depois, o Ren’Py reproduz a faixa em loop em um canal separado, junto das trilhas locais.
 
-A API retorna informações em JSON. O jogo interpreta esses dados e obtém o áudio permitido para reprodução. As solicitações são realizadas em segundo plano para evitar bloquear a interface.
+**É necessário ter internet para consultar e baixar a faixa.** Depois de baixada, ela pode continuar repetindo sem uma conexão permanente. Não se trata de uma transmissão ao vivo.
 
-### Configuração do Client ID
+O menu **Jamendo Radio** também permite pesquisar outras faixas disponíveis.
 
-A versão entregue possui um Client ID configurado. Esse identificador público da aplicação não é uma senha.
+As solicitações são executadas em segundo plano, com tratamento de erros. A narrativa e as músicas locais funcionam independentemente da disponibilidade do serviço.
 
-Para utilizar outra aplicação Jamendo sem alterar o código, é possível definir a variável de ambiente `JAMENDO_CLIENT_ID` antes de abrir o Ren’Py.
+### Configurar outro Client ID
 
-No PowerShell:
+A versão entregue possui um Client ID público configurado. Esse identificador representa a aplicação e não é uma senha.
+
+Para substituir o identificador da ambientação automática sem modificar o código, defina a variável de ambiente `JAMENDO_CLIENT_ID` antes de iniciar o jogo.
+
+<details>
+<summary><strong>Windows</strong></summary>
+
+Com o PowerShell aberto dentro da pasta extraída:
 
 ```powershell
 $env:JAMENDO_CLIENT_ID = "SEU_CLIENT_ID"
+.\Thecozyretiring.exe
 ```
 
-Depois, inicie o launcher pelo mesmo PowerShell, ajustando o caminho para a instalação do SDK:
+</details>
 
-```powershell
-& "C:\caminho\para\renpy-sdk\renpy.exe"
+<details>
+<summary><strong>Linux</strong></summary>
+
+Com o terminal aberto dentro da pasta extraída:
+
+```bash
+JAMENDO_CLIENT_ID="SEU_CLIENT_ID" ./Thecozyretiring.sh
 ```
 
-O campo **Edit Client ID**, dentro do menu Jamendo Radio, permite alterar o identificador utilizado na busca manual. Para a ambientação automática, utilize a variável de ambiente.
+</details>
 
-Não é necessário inserir senhas ou tokens privados no repositório.
+<details>
+<summary><strong>macOS</strong></summary>
 
-### Se o áudio online não funcionar
+Com o terminal na pasta que contém o aplicativo:
 
-Confira:
+```bash
+JAMENDO_CLIENT_ID="SEU_CLIENT_ID" "./Thecozyretiring.app/Contents/MacOS/Thecozyretiring"
+```
 
-- A conexão com a internet.
-- A validade do Client ID e a situação da aplicação na Jamendo.
-- Eventuais mensagens de erro exibidas no menu de rádio.
-- Bloqueios de rede, DNS ou problemas de certificados HTTPS.
+</details>
 
-A disponibilidade do áudio online depende da Jamendo e da faixa. Uma falha nessa integração não substitui nem remove as trilhas locais.
+Ao utilizar o código-fonte, defina a mesma variável e inicie o SDK pelo mesmo terminal.
 
-## Organização do projeto
+O campo **Edit Client ID**, no menu Jamendo Radio, altera o identificador utilizado na busca manual. Ele não substitui a configuração da ambientação automática.
+
+Não publique senhas ou tokens privados no repositório.
+
+---
+
+## 🔧 Problemas comuns
+
+| Problema | Solução |
+|:--|:--|
+| O ZIP é muito pequeno e não abre | Baixe o conteúdo original do Git LFS ou execute `git lfs pull`. |
+| O jogo não abre dentro do ZIP | Extraia todos os arquivos antes de executar. |
+| O `.exe` não encontra recursos | Mantenha todas as pastas e arquivos da distribuição juntos. |
+| Linux informa falta de permissão | Conceda permissão ao script e ao binário conforme o tutorial. |
+| A ambientação online não toca | Confira internet, Client ID, disponibilidade da Jamendo e mensagens do menu de rádio. |
+| Erro de certificado HTTPS | Confira data, hora, certificados e restrições da rede. Não desative a verificação de segurança. |
+| O projeto não aparece no launcher | Selecione a pasta que contém `projeto-final`. |
+| Erro ao executar `.rpy` como Python | Utilize o Ren’Py SDK. |
+| Um save antigo apresenta erro | Teste uma nova partida; saves de versões diferentes podem ser incompatíveis. |
+
+Quando houver erro, registre a mensagem exibida e, se gerado, o arquivo `traceback.txt`.
+
+---
+
+## 📂 Organização do repositório
 
 | Localização | Conteúdo |
-|---|---|
-| `projeto-final/game/script.rpy` | Fluxo principal da partida |
-| `projeto-final/game/story/` | Prólogo, escolha de lar, rotas e finais |
-| `projeto-final/game/characters/` | Definições de personagens |
-| `projeto-final/game/system/personality.rpy` | Pontuações e variáveis da partida |
-| `projeto-final/game/system/memorias.rpy` | Registro e interface do livro |
-| `projeto-final/game/system/soundtrack.rpy` | Controle das trilhas locais |
-| `projeto-final/game/requirements/api.rpy` | Integração da Jamendo com o Ren’Py |
-| `projeto-final/game/python-packages/cozy_radio.py` | Comunicação HTTP e interpretação das respostas |
+|:--|:--|
+| `README.md` | Apresentação e instruções |
+| `The cozy retiring · Apresentação Visual.html` | Página visual sobre o projeto |
+| `Thecozyretiring-1.0-dists/` | Pacotes prontos para jogar |
+| `projeto-final/game/script.rpy` | Fluxo principal |
+| `projeto-final/game/story/` | Prólogo, rotas, escolhas e finais |
+| `projeto-final/game/characters/` | Definições dos personagens |
+| `projeto-final/game/system/` | Personalidade, memórias e trilhas |
+| `projeto-final/game/requirements/api.rpy` | Integração da Jamendo no Ren’Py |
+| `projeto-final/game/python-packages/cozy_radio.py` | Comunicação HTTPS e interpretação de JSON |
 | `projeto-final/game/screens.rpy` | Telas e menus |
 | `projeto-final/game/gui.rpy` | Configurações visuais |
 | `projeto-final/game/images/` | Cenários, personagens e interface |
-| `projeto-final/game/musics/` | Músicas e efeitos locais |
-| `projeto-final/game/fonts/` | Fontes utilizadas |
-| `projeto-final/registros_individuais/` | Registros acadêmicos da equipe |
+| `projeto-final/game/musics/` | Músicas e efeitos |
+| `projeto-final/game/fonts/` | Fontes e licenças |
+| `projeto-final/registros_individuais/` | Registros acadêmicos |
+| `.gitattributes` | Configuração do Git LFS |
+| `.gitignore` | Regras de arquivos ignorados pelo Git |
 
-## Conceitos aplicados
+---
 
-- Condicionais para selecionar rotas, encontros e consequências.
-- Variáveis para registrar acontecimentos anteriores.
-- Acumuladores para os pontos de personalidade.
-- Listas e dicionários para organizar memórias e informações.
-- Funções para organizar comportamentos reutilizáveis.
-- Aleatoriedade para variar encontros.
-- Requisições HTTPS e interpretação de JSON.
-- Tratamento de erros na comunicação com serviços externos.
+## 👩‍💻 Equipe
 
-## Contribuições da equipe
+**Ingrid Barbosa Silva**  
+Adaptação e desenvolvimento da narrativa, rotas, escolhas, condicionais, personalização visual, livro de memórias e ajustes de ambientação sonora.
 
-**Ingrid Barbosa Silva:** desenvolvimento e adaptação da narrativa, rotas, escolhas, condicionais, personalização visual, livro de memórias e ajustes de ambientação sonora.
-
-**Evelin Monique Ferreira da Silva:** desenvolvimento da integração com a API e da comunicação com o serviço externo.
+**Evelin Monique Ferreira da Silva**  
+Integração com a API e comunicação com o serviço externo.
 
 A integração entre narrativa, áudio e serviço online envolveu colaboração entre as integrantes.
 
-## Demonstração sugerida
+---
 
-1. Iniciar uma nova partida.
-2. Escolher uma estação e uma casa.
-3. Tomar uma decisão durante a exploração.
-4. Abrir o livro e conferir a memória registrada.
-5. Observar a trilha da estação e demonstrar a integração online.
-6. Carregar uma partida salva para apresentar uma cena posterior e o final.
+## 📌 Sobre as versões disponíveis
 
-## Créditos e fontes
+Esta entrega contém versões de desktop. Não há pacote Android, iOS ou versão web jogável incluída.
 
-- Ren’Py: https://www.renpy.org/
-- Jamendo: https://www.jamendo.com/
-- Documentação da API Jamendo: https://developer.jamendo.com/v3.0
+O HTML de apresentação descreve o projeto, mas não executa o jogo.
+
+---
+
+## 📚 Fontes e documentação
+
+- [Ren’Py](https://www.renpy.org/)
+- [Distribuições do Ren’Py](https://www.renpy.org/doc/html/build.html)
+- [Execução pela linha de comando](https://www.renpy.org/doc/html/cli.html)
+- [Jamendo](https://www.jamendo.com/)
+- [Documentação da API Jamendo](https://developer.jamendo.com/v3.0)
+- [Git LFS](https://git-lfs.com/)
 - Ambientação online: **Birdstrem — Zeffon**.
-- Licenças das fontes disponíveis na pasta `game/fonts`.
+- Licenças das fontes disponíveis em `projeto-final/game/fonts/`.
 
-Os créditos dos demais recursos visuais e sonoros devem identificar seus respectivos autores e fontes.
+Os créditos dos demais recursos visuais e sonoros devem ser complementados com os respectivos autores e fontes.
